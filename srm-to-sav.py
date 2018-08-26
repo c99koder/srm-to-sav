@@ -35,10 +35,8 @@ def main(argv):
         sys.exit(2)
 
     with open(inputfile, "rb") as infile, open(outputfile, "wb") as outfile:
-
-        data = infile.read()
         # Limit size of file to .sav length
-        data = data[:131072]
+        data = infile.read(131072)
 
         if byteswap:
             for i in range(int(len(data) / 8)):
